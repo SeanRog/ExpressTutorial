@@ -9,11 +9,14 @@ const app = express()
 const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.set('view engine', 'hbs')
-app.use(express.static(publicDirectoryPath))
+// app.use(express.static(publicDirectoryPath)) // uses the index.html file as the home page (endpoint '')
 
 // home page is replaced with the index.html
 app.get('', (req, res) => {
-    res.send('<h1>Weather</h1>');
+    res.render('index', {
+        title: 'Weather App',
+        name: 'Andrew Mead'
+    });
 })
 
 app.get('/about', (req, res) => {
