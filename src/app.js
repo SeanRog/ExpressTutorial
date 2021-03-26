@@ -38,13 +38,18 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help page',
+        helpText: 'halp meh',
         name: 'Sean Rogers'
     });
 })
 
+app.get('/help/*', (req, res) => {
+    res.send('help article not found')
+})
 
-
-
+app.get('*', (req, res) => {
+    res.send('My 404 page')
+})
 
 app.listen(3000, () => {
     console.log('Server is up on port 3000.');
