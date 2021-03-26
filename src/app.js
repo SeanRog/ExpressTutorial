@@ -11,11 +11,11 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 app.set('view engine', 'hbs')
 // app.use(express.static(publicDirectoryPath)) // uses the index.html file as the home page (endpoint '')
 
-// home page is replaced with the index.html
+// home page is replaced with the index.hbs file. first argument of res.render() refers to index.hbm
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App',
-        name: 'Andrew Mead'
+        name: 'Sean Rogers'
     });
 })
 
